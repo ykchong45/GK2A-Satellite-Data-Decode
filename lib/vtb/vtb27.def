@@ -1,0 +1,8 @@
+DLL {
+	global:
+		vtb27;
+		vtb27_initialize;
+		vtb27_terminate;
+	local:
+		*;
+};
