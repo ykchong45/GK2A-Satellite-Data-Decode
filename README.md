@@ -15,13 +15,13 @@ This repo is almost a fork of Lucas' work with little changes. Together with a d
 
 目前还没有接入TCP进行实时解码。因此数据处理循环是在`decode.c`第190行定义的。
 
-另外，`makefile_libfec`是供libfec库使用的。详见 [安装libfec库](#安装libfec库)。[test](#Clone-repo到本地)
+另外，`makefile_libfec`是供libfec库使用的。详见 [安装libfec库](#安装libfec库)。
 
 
 
 ## Clone repo到本地
 
-==**请确保本地目录中没有中文字符和空格。**==
+*<u>**请确保本地目录中没有中文字符和空格。**</u>*
 
 
 
@@ -30,8 +30,8 @@ This repo is almost a fork of Lucas' work with little changes. Together with a d
 本repo使用到libfec，因此编译和运行需要进行以下配置：
 
 1. [安装Cygwin及编译依赖库](#安装Cygwin及编译依赖库)
-2. [安装libfec](安装libfec)
-3. [使用本程序](使用本程序)
+2. [安装libfec](#安装libfec)
+3. [使用本程序](#使用本程序)
 
 
 
@@ -63,7 +63,7 @@ chere -i -t mintty -s bash
 
 本repo中，我们使用了移植到x86_64上的[libfec](https://github.com/quiet/libfec)——一个非常经典的FEC（Forward Error Correction）库。具体安装过程如下：
 
-首先将上述库下载到本地==（注意：目录中**不要出现中文字符和空格**）==，再用本repo的`makefile_libfec`替换它原本的文件，并**重命名为`makefile`**。最后用Cygwin打开当前目录，执行以下指令：
+首先将上述库下载到本地（*<u>注意：目录中**不要出现中文字符和空格**</u>*），再用本repo的`makefile_libfec`替换它原本的文件，并**重命名为`makefile`**。最后用Cygwin打开当前目录，执行以下指令：
 
 ```shell
 ./configure
@@ -85,7 +85,7 @@ make install
 LIB_DIR_WIN := e/libfec
 ```
 
-**==注意：请勿在磁盘名前加斜杠，且斜杠为 / 而非 \\！==**
+<u>***注意：请勿在磁盘名前加斜杠，且斜杠为 / 而非 \\！***</u>
 
 用Cygwin打开当前目录，使用以下指令：
 
