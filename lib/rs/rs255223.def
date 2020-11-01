@@ -1,8 +1,0 @@
-DLL {
-	global:
-		rs255223;
-		rs255223_initialize;
-		rs255223_terminate;
-	local:
-		*;
-};
