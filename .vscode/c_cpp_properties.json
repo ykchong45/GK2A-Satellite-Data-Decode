@@ -1,0 +1,22 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "C:\\cygwin64\\usr\\include",
+                "E:\\libfec"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ],
+            "cStandard": "gnu11",
+            "cppStandard": "gnu++14",
+            "compilerPath": "C:\\cygwin64\\bin\\gcc.exe",
+            "intelliSenseMode": "gcc-x64"
+        }
+    ],
+    "version": 4
+}

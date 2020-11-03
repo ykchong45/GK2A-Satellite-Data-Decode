@@ -13,8 +13,10 @@ SRC := libfec.a
 LIB_DIR := $(addprefix /cygdrive/, $(LIB_DIR_WIN))
 LIB_SRC := $(foreach libsrc, $(SRC), $(LIB_DIR)/$(libsrc))
 
+INC_DIR := ./includes
+
 all:
-	$(CC) -o decode.exe decode.c $(LIB_SRC)
+	$(CC) -o decode.exe decode.c $(LIB_SRC) -I$(INC_DIR)
 
 test:
 	@echo $(LIB_SRC)
