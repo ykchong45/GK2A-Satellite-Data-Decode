@@ -95,7 +95,14 @@ void checkCorrelation(uint8_t *buffer, int buffLength, correlation_t *corr)
 
 int readDataForChunk(uint8_t *data, uint32_t size, FILE *sockfd)
 {
-    return fread(data, size, 1, sockfd);
+    int n = fread(data, size, 1, sockfd);
+    // Terminate program if nothing more is read.
+    if (n < 1)
+    {
+        printf("End of input data is reached.\n");
+        exit(1);
+    }
+    return n;
 }
 
 void fixPacket(uint8_t *buffer, int buffLength, uint8_t n)
@@ -152,11 +159,18 @@ void writeOutputToFile(uint8_t *data, int sizeToWrite, uint8_t vcid, uint32_t co
     // Output filename is in format "vcid_counter".
     char filename[20];
     sprintf(filename, "./vcdu/%d_%d", vcid, counter);
-    printf("Creating file %s ...\n", filename);
 
-    FILE *fout = fopen(filename, "wb");
-    fwrite(data, sizeToWrite, 1, fout);
-    fclose(fout);
+    if (vcid != 63)
+    {
+        printf("Creating file %s ...\n", filename);
+        FILE *fout = fopen(filename, "wb");
+        fwrite(data, sizeToWrite, 1, fout);
+        fclose(fout);
+    }
+    else
+    {
+        printf("File creation skipped.\n");
+    }
 }
 
 int main()
@@ -187,8 +201,9 @@ int main()
     }
 
     int cnt = 0;
-    while (cnt++ < 5)
+    while (1)
     {
+        cnt++;
         printf("loop %d\n", cnt);
         // printf("local data reading pointer at %d\n", ftell(newsockfd));
 
@@ -291,6 +306,7 @@ int main()
             if (derrors[0] == -1 && derrors[1] == -1 && derrors[2] == -1 && derrors[3] == -1)
             {
                 dropCount++;
+                printf("\n\n");
             }
             else
             {
