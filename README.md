@@ -43,8 +43,6 @@ Choose A Download Site时选择一个离您较近的网站。
 
 接着会弹出Select Packages的窗口，请选择Full，输入要查询的package名称，并点击对应的package行的三角形选择要安装的版本，最后单击Next。我们本次需要安装`gcc-core, make, chere`这三个packages。
 
-![image-20201101194750561](C:\Users\Chong Yong Kin\AppData\Roaming\Typora\typora-user-images\image-20201101194750561.png)
-
 安装完成后不要删除安装包，未来可能还需要用到它来增减package。
 
 结束之前，记得在最后一页里勾选把Cygwin添加到开始菜单。至此就完成了Cygwin相关的安装。
@@ -93,6 +91,11 @@ LIB_DIR_WIN := e/libfec
 
 ​	`make clean`：删除decode.exe。
 
+运行时可以使用下面的指令，让命令行的输出同时也被记录在`log.txt`中。（请**使用VSCode等文本编辑器查看log**，它们能识别出Linux的换行符）
+
+```
+stdbuf -o 0 ./decode | tee log.txt
+```
 
 
 ## 有问题？
