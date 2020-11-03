@@ -91,6 +91,11 @@ LIB_DIR_WIN := e/libfec
 
 ​	`make clean`：删除decode.exe。
 
+运行时可以使用下面的指令，让命令行的输出同时也被记录在`log.txt`中。（请**使用VSCode等文本编辑器查看log**，它们能识别出Linux的换行符）
+
+```
+stdbuf -o 0 ./decode | tee log.txt
+```
 
 
 ## 有问题？
